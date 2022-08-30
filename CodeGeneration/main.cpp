@@ -41,17 +41,8 @@ int main()
 	doubleLine();
 
 
-	//Average Coding length;
-	double avg_len{ 0 };
-	double entropy{ 0 };
-	for (int i = 0; i < n; i++)
-	{
-		avg_len += (code[i].length() * probs[i]);
-		entropy -= probs[i] * log2(probs[i]);
-	}
-
-	cout << "Entropy = " << entropy << '\n';
-	cout << "Average Coding length = " << avg_len << '\n';
+	cout << "Entropy = " << getEntropy(probs) << '\n';
+	cout << "Average Coding length = " << getAverageCodeLength(probs,code) << '\n';
 
 
 	return 0;

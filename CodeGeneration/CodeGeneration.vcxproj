@@ -26,6 +26,7 @@
     <ClCompile Include="FanoCode.cpp" />
     <ClCompile Include="HammingCode.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="utilities.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
