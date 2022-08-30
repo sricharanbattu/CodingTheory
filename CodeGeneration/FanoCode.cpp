@@ -1,5 +1,5 @@
 #include "Libraries.h"
-
+using namespace std;
 
 /*
 * FANO's code Implementation :
@@ -22,10 +22,11 @@
 * code gets updated
 */
 
-using namespace std;
 
-vector<string> fanoCode(vector <double> sorted_prob, vector<string> code, int begin, int end, string prefix) {
+vector<string> fanoCode(vector <double> sorted_prob, int begin, int end, string prefix) 
+{
 
+	static vector<string> code(end-begin+1, "");      // declaring a code vector here for the first time
 
 	// Recursive base conditions 
 	if (begin > end)
@@ -78,8 +79,8 @@ vector<string> fanoCode(vector <double> sorted_prob, vector<string> code, int be
 
 
 	// Add prefix 0 to the left array and 1 to the right array and repeat the process
-	code = fanoCode(sorted_prob, code, begin, divider, "0");
-	code = fanoCode(sorted_prob, code, divider + 1, end, "1");
+	code = fanoCode(sorted_prob, begin, divider, "0");
+	code = fanoCode(sorted_prob, divider + 1, end, "1");
 
 	return code;
 

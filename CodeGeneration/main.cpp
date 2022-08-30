@@ -21,18 +21,15 @@ int main()
 	doubleLine();
 
 	sort(probs.begin(), probs.end(), greater<double>());
+	vector<string> codes;
 
-	vector<string> code(n, "");
-	code = fanoCode(probs, code, 0, n - 1, "");
+	codes = getCodes(probs, "FANO");
+	cout << " FANO'S METHOD : " << '\n';
+	printDetails(probs, codes);
 
-	for (int i = 0; i < n; i++) 
-	{
-		cout << "Code of message with probability " << probs[i] << " is : " << code[i] << '\n';
-	}
-	doubleLine();
-
-	cout << "Entropy = " << getEntropy(probs) << '\n';
-	cout << "Average Coding length = " << getAverageCodeLength(probs,code) << '\n';
+	codes = getCodes(probs, "SHANNON");
+	cout << " SHANNON'S METHOD : " << '\n';
+	printDetails(probs, codes);
 
 
 	return 0;

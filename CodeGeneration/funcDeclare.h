@@ -8,6 +8,11 @@ using namespace std;
 void doubleLine();
 double getEntropy(vector<double> probs);
 double getAverageCodeLength(vector<double> probs, vector<string> codes);
-vector<string> fanoCode(vector <double> sorted_prob, vector<string> code, int begin, int end, string prefix);
+vector<string> getCodes(vector<double> sorted_probs, string code_method);
+void printDetails(vector<double> probs, vector<string> codes);
+
+vector<string> fanoCode(vector <double> sorted_prob, int begin, int end, string prefix);
+vector<string> shannonCode(vector<double> sorted_probs);
+
 
 #endif
