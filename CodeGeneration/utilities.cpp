@@ -1,5 +1,15 @@
 #include "Libraries.h"
+#include "funcDeclare.h"
+
 using namespace std;
+
+
+void doubleLine()
+{
+	cout << "\n\n";
+}
+
+
 
 double getEntropy(vector<double> probs) 
 {

@@ -27,7 +27,6 @@ using namespace std;
 vector<string> fanoCode(vector <double> sorted_prob, vector<string> code, int begin, int end, string prefix) {
 
 
-
 	// Recursive base conditions 
 	if (begin > end)
 		return code;
@@ -52,7 +51,6 @@ vector<string> fanoCode(vector <double> sorted_prob, vector<string> code, int be
 	vector<double> cumulative_backprob(n, 0);
 
 
-
 	// Slicing the code. divider gives the index after which we must slice the array. 
 	// (begin < divider < end) 
 	cumulative_prob[0] = sorted_prob[begin];
@@ -61,16 +59,15 @@ vector<string> fanoCode(vector <double> sorted_prob, vector<string> code, int be
 	for (int i = 1; i < n; i++)
 	{
 		cumulative_prob[i] = cumulative_prob[i - 1] + sorted_prob[begin + i];
-
 	}
 
 	for (int j = n - 2; j >= 0; j--) {
 		cumulative_backprob[j] = cumulative_backprob[j + 1] + sorted_prob[begin + j];
 	}
 
+
 	double mini{ abs(cumulative_prob[0] - cumulative_backprob[1]) };
 	int divider{ begin };
-
 	for (int i = 1; i < n - 1; i++) {
 		if (abs(cumulative_prob[i] - cumulative_backprob[i + 1]) < mini)
 		{
@@ -85,8 +82,5 @@ vector<string> fanoCode(vector <double> sorted_prob, vector<string> code, int be
 	code = fanoCode(sorted_prob, code, divider + 1, end, "1");
 
 	return code;
-
-
-
 
 }
