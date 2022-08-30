@@ -3,6 +3,11 @@
 
 using namespace std;
 
+void doubleLine()
+{
+	cout << "\n\n";
+}
+
 int main()
 {
 	int n;
@@ -27,9 +32,27 @@ int main()
 	vector<string> code(n, "");
 	code = fanoCode(probs, code, 0, n - 1, "");
 
+	doubleLine();
+
 	for (int i = 0; i < n; i++) 
 	{
 		cout << "Code of message with probability " << probs[i] << " is : " << code[i] << '\n';
 	}
+	doubleLine();
+
+
+	//Average Coding length;
+	double avg_len{ 0 };
+	double entropy{ 0 };
+	for (int i = 0; i < n; i++)
+	{
+		avg_len += (code[i].length() * probs[i]);
+		entropy -= probs[i] * log2(probs[i]);
+	}
+
+	cout << "Entropy = " << entropy << '\n';
+	cout << "Average Coding length = " << avg_len << '\n';
+
+
 	return 0;
 }
