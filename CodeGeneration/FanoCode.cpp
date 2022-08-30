@@ -79,8 +79,8 @@ vector<string> fanoCode(vector <double> sorted_prob, int begin, int end, string 
 
 
 	// Add prefix 0 to the left array and 1 to the right array and repeat the process
-	code = fanoCode(sorted_prob, begin, divider, "0");
-	code = fanoCode(sorted_prob, divider + 1, end, "1");
+	fanoCode(sorted_prob, begin, divider, "0");
+	fanoCode(sorted_prob, divider + 1, end, "1");
 
 	return code;
 
