@@ -15,18 +15,17 @@ int main()
 	vector<double> probs(n, 0);
 	cout << "Enter the probabilities of the messages in decimal notation(Fractions don't work): \n";
 
-	// Take care that the sum of probs is 1. We are not adding any sort of  check here
-	
+	// Take care that the sum of probs is 1. 
 	double sum_probs{ 0 };
 	for (int i = 0; i < n; i++)
 	{
 		cin >> probs[i];
-		ASSERT_RANGE_PROB(probs[i], "Entered Probability not in expected range (0,1].");
+		ASSERT_RANGE_PROB(probs[i], 0, 1, "Entered Probability not in expected range (0,1].");
 		sum_probs += probs[i];
 		cout << "You entered " << probs[i] << '\n';
 	}
 
-	// Assert that the sum of probs is 1. For future development
+	// Assert that the sum of probs is 1.
 	ASSERT_TOTAL_PROB(sum_probs, 1e-10, "Sum of Probabilities is not 1");
 	doubleLine();
 
