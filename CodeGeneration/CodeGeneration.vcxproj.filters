@@ -21,6 +21,12 @@
     <ClInclude Include="funcDeclare.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="utilities.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="defines.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FanoCode.cpp">

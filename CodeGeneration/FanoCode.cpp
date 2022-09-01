@@ -1,4 +1,5 @@
 #include "Libraries.h"
+#include "defines.h"
 using namespace std;
 
 /*
@@ -27,7 +28,7 @@ vector<string> fanoCode(vector <double> sorted_prob, int begin, int end, string 
 {
 
 	static vector<string> code(end-begin+1, "");      // declaring a code vector here for the first time
-
+	
 	// Recursive base conditions 
 	if (begin > end)
 		return code;

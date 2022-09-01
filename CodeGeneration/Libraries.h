@@ -9,5 +9,9 @@
 #include <bitset>
 #include <cstdint>
 #include <iomanip>
+#include <limits>
+#include <cassert>
+
+using namespace std;
 
 #endif

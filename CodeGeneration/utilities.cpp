@@ -1,5 +1,6 @@
 #include "Libraries.h"
 #include "funcDeclare.h"
+#include "defines.h"
 
 using namespace std;
 
@@ -17,6 +18,8 @@ double getEntropy(vector<double> probs)
 	double entropy{ 0 };
 	for (int i = 0; i < n; i++)
 	{
+		if (probs[i] <= 0)
+			continue;
 		entropy -= probs[i] * log2(probs[i]);
 	}
 
