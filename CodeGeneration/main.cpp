@@ -20,7 +20,7 @@ int main()
 	for (int i = 0; i < n; i++)
 	{
 		cin >> probs[i];
-		ASSERT_RANGE_PROB(probs[i], 0, 1, "Entered Probability not in expected range (0,1].");
+		ASSERT_PROB_RANGE(probs[i], 0, 1, "Entered Probability not in expected range (0,1].");
 		sum_probs += probs[i];
 		cout << "You entered " << probs[i] << '\n';
 	}
