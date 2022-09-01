@@ -40,43 +40,31 @@ vector<string> fanoCode(vector <double> sorted_prob, int begin, int end, string 
 
 	// Non-trivial implementation begins here
 	int n = end - begin + 1;
+	double sum_probs{ 0 }; // This is the sum of probabilities in this array
 
 	for (int i = begin; i <= end; i++)
 	{
 		code[i] += prefix;
+		sum_probs += sorted_prob[i];
 	}
-
-	// These two are to calculate the cumulative probabilities upto an index from begin and end
-	// These values are used to slice the array so that both arrays has total probability as close as possible
-	vector<double> cumulative_prob(n, 0);
-	vector<double> cumulative_backprob(n, 0);
 
 
 	// Slicing the code. divider gives the index after which we must slice the array. 
 	// (begin < divider < end) 
-	cumulative_prob[0] = sorted_prob[begin];
-	cumulative_backprob[n - 1] = sorted_prob[end];
-
-	for (int i = 1; i < n; i++)
-	{
-		cumulative_prob[i] = cumulative_prob[i - 1] + sorted_prob[begin + i];
-	}
-
-	for (int j = n - 2; j >= 0; j--) {
-		cumulative_backprob[j] = cumulative_backprob[j + 1] + sorted_prob[begin + j];
-	}
 
 
-	double mini{ abs(cumulative_prob[0] - cumulative_backprob[1]) };
+	double mini{ abs(sorted_prob[begin] - (sum_probs - sorted_prob[begin])) };
 	int divider{ begin };
-	for (int i = 1; i < n - 1; i++) {
-		if (abs(cumulative_prob[i] - cumulative_backprob[i + 1]) < mini)
+	double cumulative_prob{ sorted_prob[begin] };
+	for (int i = begin + 1; i < end; i++)
+	{
+		cumulative_prob += sorted_prob[i];
+		if (abs(cumulative_prob - (sum_probs - cumulative_prob)) < mini)
 		{
-			mini = abs(cumulative_prob[i] - cumulative_backprob[i + 1]);
-			divider = begin + i;
+			mini = abs(cumulative_prob - (sum_probs - cumulative_prob));
+			divider = i;
 		}
 	}
-
 
 	// Add prefix 0 to the left array and 1 to the right array and repeat the process
 	fanoCode(sorted_prob, begin, divider, "0");
