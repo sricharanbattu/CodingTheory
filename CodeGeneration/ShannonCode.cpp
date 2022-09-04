@@ -9,10 +9,10 @@ using namespace std;
 */
 
 
-vector<string>& shannonCode(vector<double>& sorted_probs)
+void shannonCode(vector<double>& sorted_probs, vector<string>& codes)
 {
 	int n = sorted_probs.size();
-	static vector<string> codes(n, "");
+	
 
 	// The implementation comes directly from the Shannon's method. 
 
@@ -38,6 +38,6 @@ vector<string>& shannonCode(vector<double>& sorted_probs)
 		}
 	}
 
-	return codes;
+	//return codes;
 
 }

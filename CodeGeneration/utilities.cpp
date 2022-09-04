@@ -118,12 +118,12 @@ double getAverageCodeLength(vector<double>& probs, vector<string>& codes)
 }
 
 // Returns a vector of code strings given the probabilities and the method of coding
-vector<string>& getCodes(vector<double>& sorted_probs, const enum class CodeMethod& code_method)
+void getCodes(vector<double>& sorted_probs, vector<string>& codes, const enum class CodeMethod& code_method)
 {
 	if (code_method == CodeMethod::eFANO)
-		return fanoCode(sorted_probs, 0, sorted_probs.size() - 1, "");
+		return fanoCode(sorted_probs, codes, 0, sorted_probs.size() - 1, "");
 	else if (code_method == CodeMethod::eSHANNON)
-		return shannonCode(sorted_probs);
+		return shannonCode(sorted_probs, codes);
 
 
 }

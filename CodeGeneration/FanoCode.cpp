@@ -23,19 +23,18 @@ using namespace std;
 */
 
 
-vector<string>& fanoCode(vector <double>& sorted_prob, int begin, int end, string prefix) 
+void fanoCode(vector<double>& sorted_prob, vector<string>& codes, int begin, int end, string prefix) 
 {
 
-	static vector<string> code(end-begin+1, "");      // declaring a code vector here for the first time
-	
+	 
 	// Recursive base conditions 
 	if (begin > end)
-		return code;
+		return;
 
 	if (begin == end)
 	{
-		code[begin] += prefix;
-		return code;
+		codes[begin] += prefix;
+		return;
 	}
 
 	// Non-trivial implementation begins here
@@ -44,7 +43,7 @@ vector<string>& fanoCode(vector <double>& sorted_prob, int begin, int end, strin
 
 	for (int i = begin; i <= end; i++)
 	{
-		code[i] += prefix;
+		codes[i] += prefix;
 		sum_probs += sorted_prob[i];
 	}
 
@@ -67,9 +66,9 @@ vector<string>& fanoCode(vector <double>& sorted_prob, int begin, int end, strin
 	}
 
 	// Add prefix 0 to the left array and 1 to the right array and repeat the process
-	fanoCode(sorted_prob, begin, divider, "0");
-	fanoCode(sorted_prob, divider + 1, end, "1");
+	fanoCode(sorted_prob, codes, begin, divider, "0");
+	fanoCode(sorted_prob,codes, divider + 1, end, "1");
 
-	return code;
+	//return codes;
 
 }

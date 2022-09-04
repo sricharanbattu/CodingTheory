@@ -7,8 +7,8 @@ using namespace std;
 
 
 
-vector<string>& fanoCode(vector <double>& sorted_prob, int begin, int end, string prefix);
-vector<string>& shannonCode(vector<double>& sorted_probs);
+void fanoCode(vector <double>& sorted_prob, vector<string>& codes, int begin, int end, string prefix);
+void shannonCode(vector<double>& sorted_probs, vector<string>& codes);
 
 
 #endif
