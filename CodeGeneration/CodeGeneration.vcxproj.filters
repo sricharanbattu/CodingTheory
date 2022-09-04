@@ -27,6 +27,12 @@
     <ClInclude Include="defines.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="userDefinedTypes.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="allUserLibraries.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FanoCode.cpp">

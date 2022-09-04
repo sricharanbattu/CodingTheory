@@ -1,7 +1,6 @@
-#include "Libraries.h"
-#include "defines.h"
-
+#include "allUserLibraries.h"
 using namespace std;
+
 
 /*
 * SHANNON's CODE IMPLEMENTATION : 
@@ -10,10 +9,10 @@ using namespace std;
 */
 
 
-vector<string> shannonCode(vector<double> sorted_probs)
+vector<string>& shannonCode(vector<double>& sorted_probs)
 {
 	int n = sorted_probs.size();
-	vector<string> codes(n, "");
+	static vector<string> codes(n, "");
 
 	// The implementation comes directly from the Shannon's method. 
 

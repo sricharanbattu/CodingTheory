@@ -1,7 +1,4 @@
-#include "Libraries.h"
-#include "funcDeclare.h"
-#include "defines.h"
-
+#include "allUserLibraries.h"
 using namespace std;
 
 
@@ -12,7 +9,7 @@ void doubleLine()
 
 
 
-double getEntropy(vector<double> probs) 
+double getEntropy(vector<double>& probs) 
 {
 	int n = probs.size();
 	double entropy{ 0 };
@@ -28,7 +25,7 @@ double getEntropy(vector<double> probs)
 
 
 
-double getAverageCodeLength(vector<double> probs, vector<string> codes)
+double getAverageCodeLength(vector<double>& probs, vector<string>& codes)
 {
 	int n = probs.size();
 	//Assert that codes and probs have same size. Left for future development
@@ -42,18 +39,18 @@ double getAverageCodeLength(vector<double> probs, vector<string> codes)
 	return avg_len;
 }
 
-vector<string> getCodes(vector<double> sorted_probs, string code_method)
+vector<string>& getCodes(vector<double>& sorted_probs, const enum class CodeMethod& code_method)
 {
-	if (code_method == "FANO")
+	if (code_method == CodeMethod::eFANO)
 		return fanoCode(sorted_probs, 0, sorted_probs.size() - 1, "");
-	else if (code_method == "SHANNON")
+	else if (code_method == CodeMethod::eSHANNON)
 		return shannonCode(sorted_probs);
 
 
 }
 
 
-void printDetails(vector<double> probs, vector<string> codes)
+void printDetails(vector<double>& probs, vector<string>& codes)
 {
 
 	int n = probs.size();

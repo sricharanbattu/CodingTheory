@@ -19,9 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="allUserLibraries.h" />
     <ClInclude Include="defines.h" />
     <ClInclude Include="funcDeclare.h" />
     <ClInclude Include="Libraries.h" />
+    <ClInclude Include="userDefinedTypes.h" />
     <ClInclude Include="utilities.h" />
   </ItemGroup>
   <ItemGroup>

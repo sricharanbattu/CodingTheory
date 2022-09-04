@@ -1,5 +1,4 @@
-#include "Libraries.h"
-#include "defines.h"
+#include "allUserLibraries.h"
 using namespace std;
 
 /*
@@ -24,7 +23,7 @@ using namespace std;
 */
 
 
-vector<string> fanoCode(vector <double> sorted_prob, int begin, int end, string prefix) 
+vector<string>& fanoCode(vector <double>& sorted_prob, int begin, int end, string prefix) 
 {
 
 	static vector<string> code(end-begin+1, "");      // declaring a code vector here for the first time
