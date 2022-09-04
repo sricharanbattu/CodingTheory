@@ -8,8 +8,8 @@ void doubleLine();
 
 void normalizeVector(vector<double>& vec);
 double getRandomDouble();
-vector<double>& getRandomProbabilities(int n);
-vector<double>& getInputProbabilities(int n);
+void getRandomProbabilities(vector<double> probs);
+void getInputProbabilities(vector<double>& probs);
 void assertProbabilities(vector<double>& probs);
 void printProbabilities(vector<double>& probs);
 

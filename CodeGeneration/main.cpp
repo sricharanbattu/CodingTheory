@@ -11,8 +11,10 @@ int main()
 	cin >> n;
 
 
-	//vector<double>& probs{ getRandomProbabilities(n) };
-	vector<double>& probs{ getInputProbabilities(n) };
+	
+	vector<double> probs(n, 0);
+	getInputProbabilities(probs);
+	//getRandomProbabilities(probs);
 	printProbabilities(probs);
 	assertProbabilities(probs);
 	doubleLine();

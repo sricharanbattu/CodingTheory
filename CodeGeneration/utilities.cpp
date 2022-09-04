@@ -35,28 +35,28 @@ double getRandomDouble()
 
 
 // Set random probabilities
-vector<double>& getRandomProbabilities(int n)
+void getRandomProbabilities(vector<double>& probs)
 {
-	static vector<double> probs(n);
+	int n = probs.size();
 	for (int i = 0; i < n; i++)
 	{
 		probs[i] = getRandomDouble();
 
 	}
 	normalizeVector(probs);
-	return probs;
+
 }
 
 // We can input the probabilities ourselves
-vector<double>& getInputProbabilities(int n)
+void getInputProbabilities(vector<double>& probs)
 {
-	static vector<double> probs(n);
+	int n = probs.size();
 	cout << "Enter the probabilities : " ;
 	for (int i = 0; i < n; i++)
 	{
 		cin >> probs[i];
 	}
-	return probs; 
+	
 }
 
 // check if the set/ entered probabilities confirm to the rules of probability
