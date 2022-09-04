@@ -7,4 +7,10 @@ enum class CodeMethod {
 	eSHANNON,
 	eHUFFMAN,
 };
+
+struct Message {
+	char symbol;
+	double prob;
+	string code;
+};
 #endif
