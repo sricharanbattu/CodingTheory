@@ -10,22 +10,12 @@ int main()
 	cout << "enter the number of messages : ";
 	cin >> n;
 
-	vector<double> probs(n, 0);
-	cout << "Enter the probabilities of the messages in decimal notation(Fractions don't work): \n";
+	cout << std::setprecision(5);
 
-	// Take care that the sum of probs is 1. 
-	double sum_probs{ 0 };
-	for (int i = 0; i < n; i++)
-	{
-		cin >> probs[i];
-		ASSERT_PROB_RANGE(probs[i], 0, 1, "Entered Probability not in expected range (0,1].");
-		sum_probs += probs[i];
-		cout << "You entered " << probs[i] << '\n';
-	}
-
-	cout << "sum of probabilities entered is :" << sum_probs << '\n';
-	// Assert that the sum of probs is 1.
-	ASSERT_TOTAL_PROB(sum_probs, 1e-10, "Sum of Probabilities is not 1 " );
+	//vector<double>& probs{ getRandomProbabilities(n) };
+	vector<double>& probs{ getInputProbabilities(n) };
+	printProbabilities(probs);
+	assertProbabilities(probs);
 	doubleLine();
 
 	//Sorting is an important step for both FANO's code and SHANNON's code
