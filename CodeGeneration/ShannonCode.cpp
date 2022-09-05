@@ -4,7 +4,10 @@ using namespace std;
 
 /*
 * SHANNON's CODE IMPLEMENTATION : 
-* 
+* The probabilities are first sorted in non-increasing order
+* The code word of a given prob comes from the binary representation
+* of sum of it's previous probabilities after decimal point.
+* The length of the codeword is ceil(log(1/prob[i]));
 
 */
 
@@ -16,7 +19,7 @@ void shannonCode(vector<double>& sorted_probs, vector<string>& codes)
 
 	// The implementation comes directly from the Shannon's method. 
 
-	double pre_cumulative_prob{ 0 };		// For a given prob, it is sum of of all the previous probs
+	double pre_cumulative_prob{ 0 };	// To store the sum of prev probabilities	
 
 	for (int i = 0; i < n; i++)
 	{
@@ -38,6 +41,6 @@ void shannonCode(vector<double>& sorted_probs, vector<string>& codes)
 		}
 	}
 
-	//return codes;
+	return;
 
 }
