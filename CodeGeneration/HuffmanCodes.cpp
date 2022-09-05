@@ -6,7 +6,7 @@ using pair_double_int = pair<double, int>;
 
 struct TreeNode {
 	pair_double_int pdi;
-	string code{ "" };
+	//string code{ "" };
 	const TreeNode* left{ nullptr };
 	const TreeNode* right{ nullptr };
 };
@@ -62,7 +62,7 @@ void huffmanCode(vector<double>& probs, vector<string>& codes)
 	
 	for (int i = 0; i < n; i++)
 	{
-		pq.push({ {probs[i], i}, "", nullptr, nullptr});
+		pq.push({ {probs[i], i}, nullptr, nullptr});
 	}
 
 	
@@ -79,7 +79,7 @@ void huffmanCode(vector<double>& probs, vector<string>& codes)
 
 		double combined_prob = first_node->pdi.first + second_node->pdi.first;
 		pair_double_int combined_pdi = { combined_prob, -1 };
-		TreeNode node = { combined_pdi, "", first_node, second_node };
+		TreeNode node = { combined_pdi, first_node, second_node };
 		pq.push(node);
 
 	}
