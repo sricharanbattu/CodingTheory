@@ -13,8 +13,8 @@ int main()
 
 	
 	vector<double> probs(n, 0);
-	//getInputProbabilities(probs);
-	getRandomProbabilities(probs);
+	getInputProbabilities(probs);
+	//getRandomProbabilities(probs);
 	printProbabilities(probs);
 	assertProbabilities(probs);
 	doubleLine();
@@ -32,10 +32,10 @@ int main()
 	cout << " SHANNON'S METHOD : " << '\n';
 	printDetails(probs, codes_shannon);
 
-	//vector<string> codes_huffman(n, "");
-	//getCodes(probs, codes_shannon, eHUFFMAN);
-	//cout << "HUFFMAN's METHOD : " << '\n';
-	//printDetails(probs, codes_huffman);
+	vector<string> codes_huffman(n, "");
+	getCodes(probs, codes_huffman, eHUFFMAN);
+	cout << "HUFFMAN's METHOD : " << '\n';
+	printDetails(probs, codes_huffman);
 	
 	return 0;
 }
