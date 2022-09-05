@@ -28,7 +28,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FanoCode.cpp" />
-    <ClCompile Include="HammingCode.cpp" />
+    <ClCompile Include="HuffmanCodes.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ShannonCode.cpp" />
     <ClCompile Include="utilities.cpp" />

@@ -12,6 +12,7 @@
 #include <limits>
 #include <cassert>
 #include <random>
+#include <queue>
 
 using namespace std;
 

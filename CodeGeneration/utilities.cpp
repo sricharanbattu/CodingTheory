@@ -29,7 +29,7 @@ double getRandomDouble()
 {
 	
 	std::mt19937 mt{ std::random_device{}() }; // this gets created and seeded every time the function is called
-	std::uniform_int_distribution range{ 100, 250 };
+	std::uniform_int_distribution range{ 1, 50 };
 	return range(mt);
 }
 
@@ -124,6 +124,8 @@ void getCodes(vector<double>& sorted_probs, vector<string>& codes, const enum cl
 		return fanoCode(sorted_probs, codes, 0, sorted_probs.size() - 1, "");
 	else if (code_method == CodeMethod::eSHANNON)
 		return shannonCode(sorted_probs, codes);
+	else if (code_method == CodeMethod::eHUFFMAN)
+		return huffmanCode(sorted_probs, codes);
 
 
 }
