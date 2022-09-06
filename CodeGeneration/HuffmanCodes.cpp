@@ -14,8 +14,8 @@ struct TreeNode {
 
 	pair_double_int pdi;				// {double,int}. double stores the probability(of the leaf or combined prob of its children)
 										// and int stores the index of the code vector if the node is a leaf(valid prob), else stores -1;
-	const TreeNode* left{ nullptr };	
-	const TreeNode* right{ nullptr };
+	TreeNode* left{ nullptr };	
+	TreeNode* right{ nullptr };
 };
 
 
@@ -29,7 +29,7 @@ struct compare {
 
 
 // This is to traverse the tree after construction to get the codes of the leaf nodes
-void DFS(const TreeNode* node, vector<string>& codes, string str)
+void DFS(TreeNode* node, vector<string>& codes, string str)
 {
 	if (node == nullptr) {
 		delete node;
@@ -43,18 +43,8 @@ void DFS(const TreeNode* node, vector<string>& codes, string str)
 		return;
 	}
 
-	// We can actually remove these checks,
-	// as the node would either be a leaf or has two children. 
-	// So the conditions will always be true here
-	if (node->left != nullptr)				
-	{
-		DFS(node->left, codes, str + "0");
-	}
-
-	if (node->right != nullptr)
-	{
-		DFS(node->right, codes, str + "1");
-	}
+	DFS(node->left, codes, str + "0");
+	DFS(node->right, codes, str + "1");
 
 	delete node;
 	return;
@@ -75,29 +65,29 @@ void huffmanCode(vector<double>& probs, vector<string>& codes)
 	}
 
 	
-	TreeNode first, second, node;
+	// Construct the binary tree
+	// Pop the least two probabilities
+	// And add the combined prob to the queue
 	while (pq.size() > 1)
 	{
-		// Pop the least two probabilities
-		// And add the combined prob to the queue
-		first = pq.top();
-		const TreeNode* const first_node = new TreeNode{first};
+		
+		TreeNode first = pq.top();
+		TreeNode* const first_node = new TreeNode{first};
 		pq.pop();
 
-		second = pq.top();
-		const TreeNode* const second_node = new TreeNode{ second};
+		TreeNode second = pq.top();
+		TreeNode* const second_node = new TreeNode{ second};
 		pq.pop();
 
 		double combined_prob = first_node->pdi.first + second_node->pdi.first;
-		pair_double_int combined_pdi = { combined_prob, -1 };
+		pair_double_int combined_pdi = { combined_prob, -1 };  // -1 to indicate that it's not a leaf
 
-		// This builds the subtree at each step
-		node = { combined_pdi, first_node, second_node }; 
+		TreeNode node = { combined_pdi, first_node, second_node }; 
 		pq.push(node);
 
 	}
 
-	const TreeNode* const root = new TreeNode{pq.top()};
+	TreeNode* const root = new TreeNode{pq.top()};
 	DFS(root, codes,"");
 
 }
