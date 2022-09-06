@@ -81,11 +81,11 @@ void huffmanCode(vector<double>& probs, vector<string>& codes)
 		// Pop the least two probabilities
 		// And add the combined prob to the queue
 		first = pq.top();
-		const TreeNode* first_node = new TreeNode{first};
+		const TreeNode* const first_node = new TreeNode{first};
 		pq.pop();
 
 		second = pq.top();
-		const TreeNode* second_node = new TreeNode{ second};
+		const TreeNode* const second_node = new TreeNode{ second};
 		pq.pop();
 
 		double combined_prob = first_node->pdi.first + second_node->pdi.first;
@@ -97,7 +97,7 @@ void huffmanCode(vector<double>& probs, vector<string>& codes)
 
 	}
 
-	const TreeNode* root = new TreeNode{pq.top()};
+	const TreeNode* const root = new TreeNode{pq.top()};
 	DFS(root, codes,"");
 
 }
