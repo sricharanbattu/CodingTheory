@@ -23,7 +23,8 @@ using namespace std;
 */
 
 
-void fanoCode(vector<double>& sorted_prob, vector<string>& codes, int begin, int end, string prefix) 
+
+void fanoCodeCore(vector<double>& sorted_prob, vector<string>& codes, int begin, int end, string prefix) 
 {
 
 	 
@@ -38,7 +39,6 @@ void fanoCode(vector<double>& sorted_prob, vector<string>& codes, int begin, int
 	}
 
 	// Non-trivial implementation begins here
-	int n = end - begin + 1;
 	double sum_probs{ 0 }; // This is the sum of probabilities in this array
 
 	for (int i = begin; i <= end; i++)
@@ -66,9 +66,13 @@ void fanoCode(vector<double>& sorted_prob, vector<string>& codes, int begin, int
 	}
 
 	// Add prefix 0 to the left array and 1 to the right array and repeat the process
-	fanoCode(sorted_prob, codes, begin, divider, "0");
-	fanoCode(sorted_prob,codes, divider + 1, end, "1");
+	fanoCodeCore(sorted_prob, codes, begin, divider, "0");
+	fanoCodeCore(sorted_prob,codes, divider + 1, end, "1");
 
-	//return codes;
+}
 
+
+void fanoCode(vector<double>& probs, vector<string>& codes)
+{
+	fanoCodeCore(probs, codes, 0, probs.size() - 1, "");
 }

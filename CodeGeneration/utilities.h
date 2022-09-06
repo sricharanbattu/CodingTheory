@@ -16,6 +16,7 @@ void printProbabilities(vector<double>& probs);
 double getEntropy(vector<double>& probs);
 double getAverageCodeLength(vector<double>& probs, vector<string>& codes);
 void getCodes(vector<double>& sorted_probs,vector<string>& codes, const enum class CodeMethod& code_method); // const references can take rvalues
+void generateCodes(vector<double>& probs, vector<string>& codes, void (*codingStrategy)(vector<double>&, vector<string>&));
 void printDetails(vector<double>& probs, vector<string>& codes);
 
 #endif

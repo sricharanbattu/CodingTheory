@@ -7,7 +7,7 @@ using namespace std;
 
 
 
-void fanoCode(vector <double>& sorted_prob, vector<string>& codes, int begin, int end, string prefix);
+void fanoCode(vector<double>& probs, vector<string>& codes);
 void shannonCode(vector<double>& sorted_probs, vector<string>& codes);
 void huffmanCode(vector<double>& probs, vector<string>& codes);
 

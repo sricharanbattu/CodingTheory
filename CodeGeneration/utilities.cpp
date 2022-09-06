@@ -121,7 +121,7 @@ double getAverageCodeLength(vector<double>& probs, vector<string>& codes)
 void getCodes(vector<double>& sorted_probs, vector<string>& codes, const enum class CodeMethod& code_method)
 {
 	if (code_method == CodeMethod::eFANO)
-		return fanoCode(sorted_probs, codes, 0, sorted_probs.size() - 1, "");
+		return fanoCode(sorted_probs, codes);
 	else if (code_method == CodeMethod::eSHANNON)
 		return shannonCode(sorted_probs, codes);
 	else if (code_method == CodeMethod::eHUFFMAN)
@@ -129,6 +129,19 @@ void getCodes(vector<double>& sorted_probs, vector<string>& codes, const enum cl
 
 
 }
+
+// I am using a function pointer here
+void generateCodes(vector<double>& probs, vector<string>& codes, void (*codingStrategy)(vector<double>&, vector<string>&))
+{
+	// clearCodes;
+	for (auto code : codes)
+	{
+		code = "";
+	}
+	//sort(probs.begin(), probs.end(), greater<double>());  // Should this be done here or outside
+	codingStrategy(probs, codes);
+}
+
 
 // Print entropy, codes and avg code length for a given distribution and codes. 
 void printDetails(vector<double>& probs, vector<string>& codes)
