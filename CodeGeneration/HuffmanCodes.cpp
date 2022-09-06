@@ -38,7 +38,7 @@ void DFS(TreeNode* node, vector<string>& codes, string str)
 
 	if (node->left == nullptr && node->right == nullptr)
 	{
-		codes[(node->pdi).second] = str;    // Updates the codeword if the node is a life
+		codes[(node->pdi).second] = str;    // Updates the codeword if the node is a leaf
 		delete node;
 		return;
 	}
