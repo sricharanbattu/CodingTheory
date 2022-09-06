@@ -5,7 +5,7 @@ using namespace std;
 int main()
 {
 	
-	int n;
+	/*int n;
 	cout << "enter the number of messages : ";
 	cin >> n;
 
@@ -38,6 +38,9 @@ int main()
 	generateCodes(probs, codes_huffman, huffmanCode);
 	cout << "HUFFMAN's METHOD : " << '\n';
 	printDetails(probs, codes_huffman);
+	*/
+
+	miniTest();
 	
 	return 0;
 }

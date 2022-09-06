@@ -160,3 +160,33 @@ void printDetails(vector<double>& probs, vector<string>& codes)
 	doubleLine();
 
 }
+
+void miniTest()
+{
+	int n = 5;
+	vector<double> probs{ 0.35, 0.25, 0.15, 0.15, 0.10 };
+	vector<string> codes(5, "");
+	printProbabilities(probs); assertProbabilities(probs);
+	doubleLine();
+
+	//Sorting is an important step for both FANO's code and SHANNON's code
+	sort(probs.begin(), probs.end(), greater<double>());
+
+	vector<string> codes_fano(n, "");
+	//getCodes(probs, codes_fano, CodeMethod::eFANO);
+	generateCodes(probs, codes_fano, fanoCode);
+	cout << " FANO'S METHOD : " << '\n';
+	printDetails(probs, codes_fano);
+
+	vector<string> codes_shannon(n, "");
+	//getCodes(probs, codes_shannon, CodeMethod::eSHANNON);
+	generateCodes(probs, codes_shannon, shannonCode);
+	cout << " SHANNON'S METHOD : " << '\n';
+	printDetails(probs, codes_shannon);
+
+	vector<string> codes_huffman(n, "");
+	//getCodes(probs, codes_huffman, CodeMethod::eHUFFMAN);
+	generateCodes(probs, codes_huffman, huffmanCode);
+	cout << "HUFFMAN's METHOD : " << '\n';
+	printDetails(probs, codes_huffman);
+}

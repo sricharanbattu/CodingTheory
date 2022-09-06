@@ -7,13 +7,12 @@
 
 #include "allUserLibraries.h"
 using namespace std;
-using pair_double_int = pair<double, int>;
 
 
 struct TreeNode {
 
-	pair_double_int pdi;				// {double,int}. double stores the probability(of the leaf or combined prob of its children)
-										// and int stores the index of the code vector if the node is a leaf(valid prob), else stores -1;
+	double prob;
+	int index;
 	TreeNode* left{ nullptr };	
 	TreeNode* right{ nullptr };
 };
@@ -23,7 +22,7 @@ struct TreeNode {
 struct compare {
 	bool operator()(TreeNode a, TreeNode b)
 	{
-		return b.pdi.first < a.pdi.first;
+		return b.prob < a.prob;
 	}
 };
 
@@ -38,7 +37,7 @@ void DFS(TreeNode* node, vector<string>& codes, string str)
 
 	if (node->left == nullptr && node->right == nullptr)
 	{
-		codes[(node->pdi).second] = str;    // Updates the codeword if the node is a leaf
+		codes[node->index] = str;    // Updates the codeword if the node is a leaf
 		delete node;
 		return;
 	}
@@ -61,7 +60,7 @@ void huffmanCode(vector<double>& probs, vector<string>& codes)
 	int n = probs.size();
 	for (int i = 0; i < n; i++)
 	{
-		pq.push({ {probs[i], i}, nullptr, nullptr});
+		pq.push({ probs[i], i, nullptr, nullptr});
 	}
 
 	
@@ -79,10 +78,9 @@ void huffmanCode(vector<double>& probs, vector<string>& codes)
 		TreeNode* const second_node = new TreeNode{ second};
 		pq.pop();
 
-		double combined_prob = first_node->pdi.first + second_node->pdi.first;
-		pair_double_int combined_pdi = { combined_prob, -1 };  // -1 to indicate that it's not a leaf
+		double combined_prob = first_node->prob + second_node->prob;
 
-		TreeNode node = { combined_pdi, first_node, second_node }; 
+		TreeNode node = { combined_prob, -1, first_node, second_node }; 
 		pq.push(node);
 
 	}
