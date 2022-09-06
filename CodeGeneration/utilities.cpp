@@ -131,7 +131,7 @@ void getCodes(vector<double>& sorted_probs, vector<string>& codes, const enum cl
 }
 
 // I am using a function pointer here
-void generateCodes(vector<double>& probs, vector<string>& codes, void (*codingStrategy)(vector<double>&, vector<string>&))
+void generateCodes(vector<double>& probs, vector<string>& codes, codingStrategy_t codeStrategy)
 {
 	// clearCodes;
 	for (auto code : codes)
@@ -139,7 +139,7 @@ void generateCodes(vector<double>& probs, vector<string>& codes, void (*codingSt
 		code = "";
 	}
 	//sort(probs.begin(), probs.end(), greater<double>());  // Should this be done here or outside
-	codingStrategy(probs, codes);
+	codeStrategy(probs, codes);
 }
 
 

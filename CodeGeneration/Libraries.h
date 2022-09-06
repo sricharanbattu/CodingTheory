@@ -13,6 +13,7 @@
 #include <cassert>
 #include <random>
 #include <queue>
+#include <functional>
 
 using namespace std;
 
