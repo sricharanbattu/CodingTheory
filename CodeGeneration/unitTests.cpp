@@ -2,47 +2,39 @@
 
 using namespace std;
 
-void codingAutoTest(codingStrategy_t codeStrategy, vector<double>& probs)
+void singleCodeTest(codingStrategy_t codeStrategy, vector<double>& probs)
 {
 	
 	vector<string> codes(probs.size(), "");
-	sort(probs.begin(), probs.end(), greater<double>());
+
 	generateCodes(probs, codes, codeStrategy);
 	printDetails(probs, codes);
 	starLine(::gSTAR_COUNT);
 }
 
-
-void codingUserTest(codingStrategy_t codeStrategy, vector<double>& probs)
-{
-	int n = probs.size();
-	vector<string> codes(n, "");
-	//getCodes(probs, codes_fano, CodeMethod::eFANO);
-	generateCodes(probs, codes, codeStrategy);
-	printDetails(probs, codes);
-	starLine(::gSTAR_COUNT);
-}
 
 
 void autoTest()
 {
 	int n = 5;
 	vector<double> probs{ 0.35, 0.25, 0.15, 0.15, 0.10 };
-	vector<string> codes(5, "");
+	vector<string> codes(n, "");
 	printProbabilities(probs); 
 	assertProbabilities(probs);
+	sort(probs.begin(), probs.end(), greater<double>());
+
 	doubleLine();
 	starLine(::gSTAR_COUNT);
 
 
 	cout << "FANO's CODE" << '\n';
-	codingAutoTest(fanoCode, probs);
+	singleCodeTest(fanoCode, probs);
 
 	cout << "SHANNON's CODE" << '\n';
-	codingAutoTest(shannonCode, probs);
+	singleCodeTest(shannonCode, probs);
 
 	cout << "HUFFMAN's CODE" << '\n';
-	codingAutoTest(huffmanCode, probs);
+	singleCodeTest(huffmanCode, probs);
 }
 
 
@@ -67,14 +59,16 @@ void userTest()
 	starLine(::gSTAR_COUNT);
 
 	cout << "FANO's CODE" << '\n';
-	codingUserTest(fanoCode, probs);
+	singleCodeTest(fanoCode, probs);
 
 	cout << "SHANNON's CODE" << '\n';
-	codingUserTest(shannonCode, probs);
+	singleCodeTest(shannonCode, probs);
 
 	cout << "HUFFMAN's CODE" << '\n';
-	codingUserTest(huffmanCode, probs);
+	singleCodeTest(huffmanCode, probs);
 }
+
+
 
 void randomTest()
 {
@@ -95,11 +89,11 @@ void randomTest()
 	starLine(::gSTAR_COUNT);
 
 	cout << "FANO's CODE" << '\n';
-	codingUserTest(fanoCode, probs);
+	singleCodeTest(fanoCode, probs);
 
 	cout << "SHANNON's CODE" << '\n';
-	codingUserTest(shannonCode, probs);
+	singleCodeTest(shannonCode, probs);
 
 	cout << "HUFFMAN's CODE" << '\n';
-	codingUserTest(huffmanCode, probs);
+	singleCodeTest(huffmanCode, probs);
 }

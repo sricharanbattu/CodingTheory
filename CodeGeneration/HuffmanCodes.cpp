@@ -71,11 +71,11 @@ void huffmanCode(vector<double>& probs, vector<string>& codes)
 	{
 		
 		TreeNode first = pq.top();
-		TreeNode* const first_node = new TreeNode{first};
+		TreeNode* const first_node = new TreeNode{ first };
 		pq.pop();
 
 		TreeNode second = pq.top();
-		TreeNode* const second_node = new TreeNode{ second};
+		TreeNode* const second_node = new TreeNode{ second };
 		pq.pop();
 
 		double combined_prob = first_node->prob + second_node->prob;

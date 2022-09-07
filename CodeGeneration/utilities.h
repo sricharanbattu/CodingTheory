@@ -22,5 +22,5 @@ double getAverageCodeLength(vector<double>& probs, vector<string>& codes);
 void getCodes(vector<double>& sorted_probs,vector<string>& codes, const enum class CodeMethod& code_method); // const references can take rvalues
 void generateCodes(vector<double>& probs, vector<string>& codes, codingStrategy_t codeStrategy);
 void printDetails(vector<double>& probs, vector<string>& codes);
-void miniTest();
+
 #endif
