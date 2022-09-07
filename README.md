@@ -24,3 +24,5 @@ These are my own projects on coding theory. The project CodeGeneration contains 
 5. Enumerators should begin with 'e' and follow up with all capital letters (eg : ***eFANO***, not FANO/efano/eFano)
 
 6. Structs can follow same convention as Enumeration identifiers. Its member variables follow same conventions as normal variables. 
+
+7. Global variables' identifiers should be capital letters following a small 'g'(stands for global) (eg : ***gSTAR_COUNT***)
