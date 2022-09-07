@@ -12,7 +12,7 @@ using namespace std;
 *
 * INPUT PARAMETERS :
 * sorted_prob : Array of probabilities in non-decreasing order. Take care that the sum is 1
-* code        : Array of code strings of the corresponding probability
+* codes       : Array of code strings of the corresponding probability
 * begin       : Beginning index of the sliced/un-sliced array
 * end         : Last index of the sliced/un-sliced array
 * prefix      : Bit character that needs to be added to this array
