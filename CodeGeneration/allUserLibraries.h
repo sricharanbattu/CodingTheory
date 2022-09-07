@@ -5,5 +5,6 @@
 #include "funcDeclare.h"
 #include "utilities.h"
 #include "defines.h"
+#include "unitTests.h"
 #include "userDefinedtypes.h"
 #endif

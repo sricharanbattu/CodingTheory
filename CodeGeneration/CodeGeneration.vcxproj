@@ -23,6 +23,7 @@
     <ClInclude Include="defines.h" />
     <ClInclude Include="funcDeclare.h" />
     <ClInclude Include="Libraries.h" />
+    <ClInclude Include="unitTests.h" />
     <ClInclude Include="userDefinedTypes.h" />
     <ClInclude Include="utilities.h" />
   </ItemGroup>
@@ -31,6 +32,7 @@
     <ClCompile Include="HuffmanCodes.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ShannonCode.cpp" />
+    <ClCompile Include="unitTests.cpp" />
     <ClCompile Include="utilities.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

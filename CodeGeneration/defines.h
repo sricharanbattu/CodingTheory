@@ -7,5 +7,7 @@
 #define ASSERT_PROB_RANGE(prob, a, b, message)		assert((prob > a) && (prob <= b) && (message))
 
 using codingStrategy_t = std::function<void(vector<double>&, vector<string>&)>;
+
+inline int gSTAR_COUNT = 100;
 #endif 
 

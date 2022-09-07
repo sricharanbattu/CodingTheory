@@ -8,6 +8,7 @@ using namespace std;
 #define UTILITIES_H
 
 void doubleLine();
+void starLine(int n);
 
 void normalizeVector(vector<double>& vec);
 double getRandomDouble();

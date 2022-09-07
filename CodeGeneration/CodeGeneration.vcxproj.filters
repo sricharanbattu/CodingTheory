@@ -33,6 +33,9 @@
     <ClInclude Include="allUserLibraries.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="unitTests.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FanoCode.cpp">
@@ -48,6 +51,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ShannonCode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="unitTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
