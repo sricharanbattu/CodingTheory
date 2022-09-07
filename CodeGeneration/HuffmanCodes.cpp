@@ -71,12 +71,10 @@ void huffmanCodeCore(vector<double>& probs, vector<string>& codes)
 	while (pq.size() > 1)
 	{
 		
-		TreeNode first = pq.top();
-		TreeNode* const first_node = new TreeNode{ first };
+		TreeNode* const first_node = new TreeNode{ pq.top() };
 		pq.pop();
 
-		TreeNode second = pq.top();
-		TreeNode* const second_node = new TreeNode{ second };
+		TreeNode* const second_node = new TreeNode{ pq.top() };
 		pq.pop();
 
 		double combined_prob = first_node->prob + second_node->prob;
@@ -86,7 +84,7 @@ void huffmanCodeCore(vector<double>& probs, vector<string>& codes)
 
 	}
 
-	TreeNode* const root = new TreeNode{pq.top()};
+	TreeNode* const root = new TreeNode{ pq.top() };
 	DFS(root, codes,"");
 
 }
