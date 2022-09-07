@@ -4,9 +4,9 @@ using namespace std;
 
 int main()
 {
-	//autoTest();
+	autoTest();
 	//randomTest();
-	userTest();
+	//userTest();
 
 	return 0;
 }

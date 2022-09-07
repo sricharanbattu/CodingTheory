@@ -11,6 +11,7 @@ void doubleLine();
 void starLine(int n);
 
 void normalizeVector(vector<double>& vec);
+void clearCodes(vector<string>& codes);
 double getRandomDouble();
 void getRandomProbabilities(vector<double>& probs);
 void getInputProbabilities(vector<double>& probs);

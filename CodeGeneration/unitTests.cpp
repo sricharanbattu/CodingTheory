@@ -19,9 +19,9 @@ void autoTest()
 	int n = 5;
 	vector<double> probs{ 0.35, 0.25, 0.15, 0.15, 0.10 };
 	vector<string> codes(n, "");
+
 	printProbabilities(probs); 
 	assertProbabilities(probs);
-	sort(probs.begin(), probs.end(), greater<double>());
 
 	doubleLine();
 	starLine(::gSTAR_COUNT);
@@ -38,15 +38,11 @@ void autoTest()
 }
 
 
-
-
 void userTest()
 {
 	int n;
 	cout << "enter the number of messages : ";
 	cin >> n;
-
-
 
 	vector<double> probs(n, 0);
 	getInputProbabilities(probs);
@@ -54,7 +50,6 @@ void userTest()
 	assertProbabilities(probs);
 	doubleLine();
 
-	sort(probs.begin(), probs.end(), greater<double>());
 
 	starLine(::gSTAR_COUNT);
 
@@ -76,15 +71,12 @@ void randomTest()
 	cout << "enter the number of messages : ";
 	cin >> n;
 
-
-
 	vector<double> probs(n, 0);
 	getRandomProbabilities(probs);
 	printProbabilities(probs);
 	assertProbabilities(probs);
 	doubleLine();
 
-	sort(probs.begin(), probs.end(), greater<double>());
 
 	starLine(::gSTAR_COUNT);
 

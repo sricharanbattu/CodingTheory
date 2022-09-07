@@ -74,5 +74,8 @@ void fanoCodeCore(vector<double>& sorted_prob, vector<string>& codes, int begin,
 
 void fanoCode(vector<double>& probs, vector<string>& codes)
 {
+	ASSERT_EQUAL_SIZES(probs, codes, " Probs and Codes are not of equal size; ");
+	clearCodes(codes);
+	sort(probs.begin(), probs.end(), greater<double>());
 	fanoCodeCore(probs, codes, 0, probs.size() - 1, "");
 }

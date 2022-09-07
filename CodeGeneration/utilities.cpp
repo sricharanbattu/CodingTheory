@@ -34,6 +34,16 @@ void normalizeVector(vector<double>& vec)
 	}
 }
 
+// Erase all the codes
+void clearCodes(vector<string>& codes)
+{
+	for (auto code : codes)
+	{
+		code = "";
+	}
+}
+
+
 // Returns a random integer within the given range as a double
 double getRandomDouble()
 {
@@ -127,28 +137,11 @@ double getAverageCodeLength(vector<double>& probs, vector<string>& codes)
 	return avg_len;
 }
 
-// Returns a vector of code strings given the probabilities and the method of coding
-void getCodes(vector<double>& sorted_probs, vector<string>& codes, const enum class CodeMethod& code_method)
-{
-	if (code_method == CodeMethod::eFANO)
-		return fanoCode(sorted_probs, codes);
-	else if (code_method == CodeMethod::eSHANNON)
-		return shannonCode(sorted_probs, codes);
-	else if (code_method == CodeMethod::eHUFFMAN)
-		return huffmanCode(sorted_probs, codes);
 
-
-}
-
-// I am using a function pointer here
+// I am using a function pointer here. Updates the codes
 void generateCodes(vector<double>& probs, vector<string>& codes, codingStrategy_t codeStrategy)
 {
-	// clearCodes;
-	for (auto code : codes)
-	{
-		code = "";
-	}
-	//sort(probs.begin(), probs.end(), greater<double>());  // Should this be done here or outside
+
 	codeStrategy(probs, codes);
 }
 

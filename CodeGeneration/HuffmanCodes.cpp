@@ -51,8 +51,9 @@ void DFS(TreeNode* node, vector<string>& codes, string str)
 }
 
 
-void huffmanCode(vector<double>& probs, vector<string>& codes)
+void huffmanCodeCore(vector<double>& probs, vector<string>& codes)
 {
+	
 	
 	// Priority queue implements the heap. We need the two smallest probs for 
 	// every step in constructing the tree, so this is the best data structure to use
@@ -88,4 +89,11 @@ void huffmanCode(vector<double>& probs, vector<string>& codes)
 	TreeNode* const root = new TreeNode{pq.top()};
 	DFS(root, codes,"");
 
+}
+
+void huffmanCode(vector<double>& probs, vector<string>& codes)
+{
+	ASSERT_EQUAL_SIZES(probs, codes, " Probs and Codes are not of equal size; ");
+	clearCodes(codes);
+	huffmanCodeCore(probs, codes);
 }

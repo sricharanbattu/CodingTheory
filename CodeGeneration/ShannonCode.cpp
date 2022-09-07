@@ -12,22 +12,21 @@ using namespace std;
 */
 
 
-void shannonCode(vector<double>& sorted_probs, vector<string>& codes)
+void shannonCodeCore(vector<double>& probs, vector<string>& codes)
 {
-	int n = sorted_probs.size();
+
+	int n = probs.size();
 	
-
 	// The implementation comes directly from the Shannon's method. 
-
 	double pre_cumulative_prob{ 0 };	// To store the sum of prev probabilities	
 
 	for (int i = 0; i < n; i++)
 	{
 		if (i > 0)
-			pre_cumulative_prob = pre_cumulative_prob + sorted_probs[i-1];
+			pre_cumulative_prob = pre_cumulative_prob + probs[i-1];
 
 		double temp_pre_cumulative_prob{ pre_cumulative_prob };
-		int code_length = ceil(-1 * log2(sorted_probs[i]));
+		int code_length = ceil(-1 * log2(probs[i]));
 		for (int j = 0; j < code_length; j++)
 		{
 			temp_pre_cumulative_prob *= 2;
@@ -43,4 +42,13 @@ void shannonCode(vector<double>& sorted_probs, vector<string>& codes)
 
 	return;
 
+}
+
+
+void shannonCode(vector<double>& probs, vector<string>& codes)
+{
+	ASSERT_EQUAL_SIZES(probs, codes, " Probs and Codes are not of equal size; ");
+	clearCodes(codes);
+	sort(probs.begin(), probs.end(), greater<double>());
+	shannonCodeCore(probs, codes);
 }
