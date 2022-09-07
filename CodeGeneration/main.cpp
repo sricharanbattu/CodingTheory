@@ -4,8 +4,8 @@ using namespace std;
 
 int main()
 {
-	autoTest();
-	//randomTest();
+	//autoTest();
+	randomTest();
 	//userTest();
 
 	return 0;

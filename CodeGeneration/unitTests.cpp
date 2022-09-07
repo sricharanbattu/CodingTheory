@@ -26,6 +26,8 @@ void autoTest()
 	doubleLine();
 	starLine(::gSTAR_COUNT);
 
+	cout << "HUFFMAN's CODE" << '\n';
+	singleCodeTest(huffmanCode, probs);
 
 	cout << "FANO's CODE" << '\n';
 	singleCodeTest(fanoCode, probs);
@@ -33,8 +35,6 @@ void autoTest()
 	cout << "SHANNON's CODE" << '\n';
 	singleCodeTest(shannonCode, probs);
 
-	cout << "HUFFMAN's CODE" << '\n';
-	singleCodeTest(huffmanCode, probs);
 }
 
 
@@ -53,14 +53,15 @@ void userTest()
 
 	starLine(::gSTAR_COUNT);
 
+	cout << "HUFFMAN's CODE" << '\n';
+	singleCodeTest(huffmanCode, probs);
+
 	cout << "FANO's CODE" << '\n';
 	singleCodeTest(fanoCode, probs);
 
 	cout << "SHANNON's CODE" << '\n';
 	singleCodeTest(shannonCode, probs);
 
-	cout << "HUFFMAN's CODE" << '\n';
-	singleCodeTest(huffmanCode, probs);
 }
 
 
@@ -80,12 +81,13 @@ void randomTest()
 
 	starLine(::gSTAR_COUNT);
 
+	cout << "HUFFMAN's CODE" << '\n';
+	singleCodeTest(huffmanCode, probs);
+
 	cout << "FANO's CODE" << '\n';
 	singleCodeTest(fanoCode, probs);
 
 	cout << "SHANNON's CODE" << '\n';
 	singleCodeTest(shannonCode, probs);
 
-	cout << "HUFFMAN's CODE" << '\n';
-	singleCodeTest(huffmanCode, probs);
 }
