@@ -46,7 +46,7 @@ void userTest()
 
 	vector<double> probs(n, 0);
 	getInputProbabilities(probs);
-	printProbabilities(probs);
+	//printProbabilities(probs);
 	assertProbabilities(probs);
 	doubleLine();
 
@@ -74,7 +74,7 @@ void randomTest()
 
 	vector<double> probs(n, 0);
 	getRandomProbabilities(probs);
-	printProbabilities(probs);
+	//printProbabilities(probs);
 	assertProbabilities(probs);
 	doubleLine();
 
