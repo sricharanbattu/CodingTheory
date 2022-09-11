@@ -147,17 +147,26 @@ void generateCodes(vector<double>& probs, vector<string>& codes, codingStrategy_
 
 
 // Print entropy, codes and avg code length for a given distribution and codes. 
+void printProbAndCode(vector<double>& probs, vector<string>& codes)
+{
+
+	int n = probs.size();
+	for (int i = 0; i < n; i++)
+	{
+		cout << "Code word for the message with probability " << probs[i] << " is : \t" << codes[i] << '\n';
+	}
+	
+}
 
 void printDetails(vector<double>& probs, vector<string>& codes)
 {
 
 	int n = probs.size();
 	//cout << std::setprecision(5);
-	for (int i = 0; i < n; i++)
-	{
-		cout << "Code word for the message with probability " << probs[i] << " is : \t" << codes[i] << '\n';
-	}
+	
+	printProbAndCode(probs, codes);
 	doubleLine();
+	
 
 	cout << "Entropy of the message                    =   " << getEntropy(probs) << '\n';
 	cout << "Average Code Length of the message        =   " << getAverageCodeLength(probs, codes) << '\n';
